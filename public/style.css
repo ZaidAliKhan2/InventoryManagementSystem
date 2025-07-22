@@ -1,0 +1,105 @@
+:root {
+  --border: 1px solid #ccc;
+  --borderRadius: 6px;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Roboto, sans-serif;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f9f9f9;
+  color: #212121;
+}
+.mainContainer {
+  width: 50%;
+  height: 80%;
+  border-radius: 10px;
+  border: var(--border);
+  box-shadow: inset;
+  padding: 20px 30px;
+}
+header {
+  text-align: center;
+  margin: 20px;
+}
+.controlsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#addItemBtn {
+  padding: 10px 35px;
+  font-size: 20px;
+  background-color: rgb(0, 76, 255);
+  color: white;
+  border: var(--border);
+  border-radius: var(--borderRadius);
+  margin-bottom: 20px;
+}
+.searchCont {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px;
+  width: 100%;
+  gap: 5px;
+  margin-bottom: 20px;
+}
+.searchCont input {
+  border: var(--border);
+  border-radius: var(--borderRadius);
+  padding: 10px;
+  width: 80%;
+  background-color: transparent;
+  color: gray;
+}
+.fa-magnifying-glass {
+  font-size: 1.2rem;
+}
+.searchCont select {
+  padding: 10px;
+  background-color: transparent;
+  border: var(--border);
+  border-radius: var(--borderRadius);
+  cursor: pointer;
+  color: #000;
+}
+
+table {
+  border: var(--border);
+  border-radius: var(--borderRadius);
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+}
+
+thead {
+  background-color: rgb(235, 232, 232);
+  border-spacing: 0;
+}
+td {
+  border: var(--border);
+  border-radius: var(--borderRadius);
+  padding: 5px;
+}
+#editBtn {
+  color: white;
+  background-color: rgb(14, 196, 14);
+}
+#delBtn {
+  color: white;
+  background-color: red;
+}
+#editBtn,
+#delBtn {
+  padding: 2px 10px;
+  border: none;
+  border-radius: var(--borderRadius);
+}

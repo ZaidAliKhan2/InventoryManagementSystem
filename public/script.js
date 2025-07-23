@@ -20,7 +20,7 @@ document.addEventListener("click", async function (e) {
     const quantity = row.querySelector('input[name="quantity"]').value;
     const category = row.querySelector('input[name="category"]').value;
 
-    const response = await fetch("/inventory/addItem", {
+    const response = await fetch("/addItem", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

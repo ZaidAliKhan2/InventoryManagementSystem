@@ -20,7 +20,7 @@ router.post("/addItem", async (req, res) => {
 router.post("/deleteItem", async (req, res) => {
   const { itemId } = req.body;
   await Item.deleteOne({ _id: itemId });
-  res.redirect("/inventory");
+  res.redirect("/");
 });
 
 router.post("/updateItem", async (req, res) => {
@@ -32,7 +32,7 @@ router.post("/updateItem", async (req, res) => {
       quantity: itemQuantity,
       category: itemCategory,
     });
-    res.redirect("/inventory");
+    res.redirect("/");
   } catch (err) {
     console.error("Error updating item:", err);
     res.status(500).send("Failed to update item.");

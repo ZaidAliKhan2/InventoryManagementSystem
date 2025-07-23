@@ -13,10 +13,7 @@ app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use("/inventory", router);
-app.get("/", (req, res) => {
-  res.redirect("/inventory");
-});
+app.use("/", router);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);

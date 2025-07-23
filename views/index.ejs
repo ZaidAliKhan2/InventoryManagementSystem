@@ -21,7 +21,7 @@
         <button type="button" id="addItemBtn">+ Add New Item</button>
       </div>
       <div class="searchCont">
-        <form action="/inventory" method="POST">
+        <form action="/" method="POST">
           <button type="submit">
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
@@ -49,7 +49,7 @@
             <tr>
               <% if (editId && editId == item._id.toString()) { %>
               <!-- Editable row -->
-              <form action="/inventory/updateItem" method="POST">
+              <form action="/updateItem" method="POST">
                 <input type="hidden" name="itemId" value="<%= item._id %>" />
                 <td>
                   <input type="text" name="itemName" value="<%= item.name %>" />
@@ -69,7 +69,7 @@
                   />
                 </td>
                 <td>
-                  <a href="/inventory" id="delBtn">Cancel</a>
+                  <a href="/" id="delBtn">Cancel</a>
                   <button type="submit" id="editBtn">Save</button>
                 </td>
               </form>
@@ -85,139 +85,14 @@
 
               <td>
                 <form
-                  action="/inventory/deleteItem"
+                  action="/deleteItem"
                   method="POST"
                   style="display: inline"
                 >
                   <input type="hidden" name="itemId" value="<%= item._id %>" />
                   <button type="submit" id="delBtn">Delete</button>
                 </form>
-                <form action="/inventory" method="GET" style="display: inline">
-                  <input type="hidden" name="editId" value="<%= item._id %>" />
-                  <button type="submit" id="editBtn">Edit</button>
-                </form>
-              </td>
-              <% } %>
-            </tr>
-            <% }) %>
-            <template id="newRowTemplate">
-              <tr>
-                <td><input type="text" name="itemName" required /></td>
-                <td><input type="number" name="quantity" required /></td>
-                <td><input type="text" name="category" required /></td>
-                <td>
-                  <button type="button" class="cancelBtn" id="delBtn">
-                    Cancel
-                  </button>
-                  <button type="button" class="saveBtn" id="editBtn">
-                    Save
-                  </button>
-                </td>
-              </tr>
-            </template>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <script src="/script.js"></script>
-  </body>
-</html>
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Inventory</title>
-    <link rel="stylesheet" href="/style.css" />
-    <!-- Font Awesome 6 Free (latest) -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-  </head>
-  <body>
-    <div class="mainContainer">
-      <header><h1>Inventory Dashboard</h1></header>
-      <div class="controlsContainer">
-        <button type="button" id="addItemBtn">+ Add New Item</button>
-      </div>
-      <div class="searchCont">
-        <form action="/inventory" method="POST">
-          <button type="submit">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
-          <input type="search" placeholder="Search.." name="search" />
-        </form>
-
-        <select id="filterSelect">
-          <option value="">All</option>
-          <option value="/inventory?sort=name">Name</option>
-          <option value="/inventory?sort=quantity">Quantity</option>
-        </select>
-      </div>
-      <div class="mainItemsCont">
-        <table>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Quantity</th>
-              <th>Category</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody id="itemTableBody">
-            <% items.forEach((item) => { %>
-            <tr>
-              <% if (editId && editId == item._id.toString()) { %>
-              <!-- Editable row -->
-              <form action="/inventory/updateItem" method="POST">
-                <input type="hidden" name="itemId" value="<%= item._id %>" />
-                <td>
-                  <input type="text" name="itemName" value="<%= item.name %>" />
-                </td>
-                <td>
-                  <input
-                    type="number"
-                    name="itemQuantity"
-                    value="<%= item.quantity %>"
-                  />
-                </td>
-                <td>
-                  <input
-                    type="text"
-                    name="itemCategory"
-                    value="<%= item.category %>"
-                  />
-                </td>
-                <td>
-                  <a href="/inventory" id="delBtn">Cancel</a>
-                  <button type="submit" id="editBtn">Save</button>
-                </td>
-              </form>
-
-              <% } else { %>
-              <!-- Read-only row -->
-              <td><%= item.name %></td>
-              <td style="<%= item.quantity < 5 ? 'color: red' : '' %>">
-                <%= item.quantity %>
-              </td>
-
-              <td><%= item.category %></td>
-
-              <td>
-                <form
-                  action="/inventory/deleteItem"
-                  method="POST"
-                  style="display: inline"
-                >
-                  <input type="hidden" name="itemId" value="<%= item._id %>" />
-                  <button type="submit" id="delBtn">Delete</button>
-                </form>
-                <form action="/inventory" method="GET" style="display: inline">
+                <form action="/" method="GET" style="display: inline">
                   <input type="hidden" name="editId" value="<%= item._id %>" />
                   <button type="submit" id="editBtn">Edit</button>
                 </form>

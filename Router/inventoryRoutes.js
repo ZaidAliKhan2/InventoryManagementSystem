@@ -4,10 +4,10 @@ import { Item } from "../schemas/model.js";
 export const router = express.Router();
 
 router.get("/", async (req, res) => {
-  const { sort } = req.query;
+  const { sort, editId } = req.query;
   const sortObj = sort ? { [sort]: 1 } : {};
   const items = await Item.find().sort(sortObj);
-  res.render("index", { items, editId: null });
+  res.render("index", { items, editId });
 });
 
 router.post("/addItem", async (req, res) => {
